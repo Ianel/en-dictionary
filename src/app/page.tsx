@@ -76,6 +76,7 @@ export default function Home() {
             const singleWord: Word[] = await response.json();
             setWord(singleWord);
         } catch (error) {
+            console.error(error);
             setWord([
                 {
                     title: "No Definitions Found",
@@ -197,7 +198,7 @@ export default function Home() {
                         <section className="mt-10 w-full max-w-6xl mx-auto">
                             <h3 className="font-semibold text-xl">Meanings</h3>
                             <section>
-                                {word.map((w, index) => {
+                                {word.map((w) => {
                                     return w["meanings"].map((m, index) => {
                                         return (
                                             <section
